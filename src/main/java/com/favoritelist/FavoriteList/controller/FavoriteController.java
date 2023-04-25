@@ -15,19 +15,19 @@ public class FavoriteController {
     private FavoriteService favoriteService;
 
     @PostMapping
-    @CrossOrigin(origins = "https://favoritelistfinal-production.up.railway.app")
+    @CrossOrigin(origins = "http://localhost:3000/favorites")
     public Favorite createFavorite(@RequestBody Favorite favorite) {
         return favoriteService.save(favorite);
     }
 
     @DeleteMapping("/{id}")
-    @CrossOrigin(origins = "https://favoritelistfinal-production.up.railway.app")
+    @CrossOrigin(origins = "http://localhost:3000/favorites")
     public void deleteFavorite(@PathVariable Long id) {
         favoriteService.delete(id);
     }
 
     @GetMapping("/user/{userId}")
-    @CrossOrigin(origins = "https://favoritelistfinal-production.up.railway.app")
+    @CrossOrigin(origins = "http://localhost:3000/favorites")
     public List<Favorite> getFavoritesByUserId(@PathVariable Long userId) {
         return favoriteService.findByUserId(userId);
     }
