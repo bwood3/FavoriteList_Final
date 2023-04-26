@@ -15,19 +15,19 @@ public class FavoriteController {
     private FavoriteService favoriteService;
 
     @PostMapping
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000","https://realestateapp.vercel.app"})
     public Favorite createFavorite(@RequestBody Favorite favorite) {
         return favoriteService.save(favorite);
     }
 
     @DeleteMapping("/{id}")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000","https://realestateapp.vercel.app"})
     public void deleteFavorite(@PathVariable Long id) {
         favoriteService.delete(id);
     }
 
     @GetMapping("/user/{userId}")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000","https://realestateapp.vercel.app"})
     public List<Favorite> getFavoritesByUserId(@PathVariable Long userId) {
         return favoriteService.findByUserId(userId);
     }
